@@ -1,0 +1,33 @@
+anotações
+
+- historia do desenvolvimento frontend
+	- monolito = um repo com front e back tudo junto no mesmo com unico db e varios devs. A dor qualquer mudanças feita no front passa por toda pipeline o mesmo acontece do back para o front
+	- separação frontback = separar o front e o back em repositorios diferentes e se comunica por API's. A escalidade ainda fica dificil quando falamos em equipes trabalhando em partes especificas do desenvolvimentos dificuldando as separações de responsabilidades. 
+	-Microsserviçoes = o backend cria uma separação em pequenos serviços com suas responsabilidades, infras e equipes distintas. Cada um destes serviçoes faz suas propias pipeline deixando as mudanças muita mais facil além de isolamento e indepedencia maior. Assim foi criada micros db, micro servidores com containers especificos.
+	-Micro frontend - iguala ao back com varios times e com suas infra, time e responsabilidades separadas.
+	PS. os frontend é trabalhados como LEGOs
+
+- problemas 
+ 	-complexibilidade no dev ( com mais linguagens mais especialistas para manutenção, mais pipelines)
+ 	-complexibilidade da segmentação de responsabilidades
+		
+ - implementação
+ 	
+ 	-single SPA = é um frameworks orquestrador.
+ 		-single-spa applications: microfrontend por rotas;
+ 		-utily modules: microfrontends compartilhado sem renderização;
+ 		-single-spa parcels: microfrontends renderizados por componentes sem rotas;
+ 		_ as deps e imports são feitos lazy, ou seja, ao chamar a rota o navegador baixar ou importar os arquivos necessarios para executar aquela rota;
+ 		-orquestrador = single-spa-config.js
+ 		-singleSpa = implenta o ciclo di vida
+	 		-bootstrap = prepara os elementos para renderizar
+	 		-mount = renderizar o frontend no dom
+	 		-amount = retira o frontend do dom
+ 	-nginx 
+ 	-proxy reverso
+ 	 -build oter stage ( o docker pega arquivos ora do proprio container, ora do orquestrador )
+ 	 -cada microfrontend tem seu nginx.conf
+ 	
+ 	-webpack 5 (module federation)
+ 	
+ 	320000918120
